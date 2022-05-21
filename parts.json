@@ -1,0 +1,82 @@
+[
+  {
+    "name": "58 mm Omnidirectional Wheel Chassis",
+    "price": 120,
+    "minOrder": 20,
+    "available": 80,
+    "description": "The Mecanum wheel from Nexus Robotics is comprised of 12 nylon rollers mounted between two aluminium alloy plates so that their axis of rotation is 45° to the axis of the main wheel. ",
+    "img": "https://static.generation-robots.com/16221-product_cover/58-mm-omnidirectional-wheel-chassis-smart-car-chassis-kit.jpg"
+  },
+  {
+    "name": "Gooseneck™ Robotics Chassis",
+    "price": 99,
+    "minOrder": 20,
+    "available": 80,
+    "description": "The Gooseneck™ Robotics Chassis by ServoCity is a small chassis equipped with two skate wheels and two 195 rpm HD planetary gear motors. It moves easily and quickly over the ground",
+    "img": "https://static.generation-robots.com/8889-product_cover/gooseneck-robotics-chassis.jpg"
+  },
+  {
+    "name": "60mm aluminium right mecanum wheel",
+    "price": 25,
+    "minOrder": 20,
+    "available": 80,
+    "description": "The 60mm aluminium mecanum wheel consists of 8 rubbers rollers, the axles and rollers are placed between two aluminiums plates. Equipped with these wheels, your robot will be able to move forwards and backwards",
+    "img": "https://static.generation-robots.com/10655-product_cover/60mm-aluminium-right-mecanum-wheel.jpg"
+  },
+  {
+    "name": "Tin Solder (100 g spool)",
+    "price": 9,
+    "minOrder": 20,
+    "available": 80,
+    "description": "This 1.0 mm diameter, 60% tin-40% lead solder has a water-soluble resin core. It's a good spool for more advanced users that should last 6 months minimum.",
+    "img": "https://static.generation-robots.com/16421-product_cover/tin-solder-100-g-spool.jpg"
+  },
+  {
+    "name": "Mini Soldering Iron",
+    "price": 96,
+    "minOrder": 20,
+    "available": 80,
+    "description": "This Seeed Studio Mini Soldering Iron is probably one of the most practical currently on the market. It’s both lightweight and portable, and you can accurately control its temperature",
+    "img": "https://static.generation-robots.com/6182-product_cover/mini-soldering-iron.jpg"
+  },
+  {
+    "name": "Seeed Studio Mini Soldering Iron Stand",
+    "price": 1,
+    "minOrder": 20,
+    "available": 80,
+    "description": "Small and portable, this stand was designed especially to go with the Seeed Studio Mini Soldering Iron. It even includes a small sponge that can help you clean your soldering iron.",
+    "img": "https://static.generation-robots.com/6184-product_cover/seeed-studio-mini-soldering-iron-stand.jpg"
+  },
+  {
+    "name": "Set of 8 precision screwdrivers - Microtip",
+    "price": 25,
+    "minOrder": 20,
+    "available": 80,
+    "description": "These screwdrivers have a special handle with swivel cap, a black tip and are made of chrome-molybdenum vanadium steel. ",
+    "img": "https://static.generation-robots.com/5681-product_cover/jeu-de-8-tournevis-de-pr%C3%A9cision-microtip.jpg"
+  },
+  {
+    "name": "Shadow Robotics Chassis",
+    "price": 19,
+    "minOrder": 20,
+    "available": 80,
+    "description": "The SparkFun RedBot Basic kit offers the ideal combination: a programming board compatible with the Arduino environment and an ABS plastic robotics chassis capable of accommodating a multitude of sensors.",
+    "img": "https://static.generation-robots.com/8392-product_cover/shadow-robotics-chassis.jpg"
+  },
+  {
+    "name": "Nexus Robotics Ltd - Aluminium",
+    "price": 80,
+    "minOrder": 20,
+    "available": 80,
+    "description": "It advocates the importance of financial literacy, independence.",
+    "img": "https://static.generation-robots.com/16365-product_cover/roue-aluminium-mecanum-254mm-gauche.jpg"
+  },
+  {
+    "name": "60mm aluminium right mecanum wheel",
+    "price": 25,
+    "minOrder": 20,
+    "available": 80,
+    "description": "The 60mm aluminium mecanum wheel consists of 8 rubbers rollers, the axles and rollers are placed between two aluminiums plates. Equipped with these wheels, your robot will be able to move forwards and backwards",
+    "img": "https://static.generation-robots.com/10655-product_cover/60mm-aluminium-right-mecanum-wheel.jpg"
+  }
+]
