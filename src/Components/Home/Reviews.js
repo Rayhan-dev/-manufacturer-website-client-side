@@ -10,7 +10,7 @@ const Reviews = () => {
     return (
         <div>
             <h1 className='text-5xl font-bold py-12'>Some reviews from our customer</h1>
-            <div className='grid grid-cols-2'>
+            <div className='grid grid-cols-3'>
 
                 {
                     reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)

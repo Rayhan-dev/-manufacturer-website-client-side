@@ -5,6 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './Components/Home/Navbar';
 import PurchasePage from './Pages/PurchasePage';
+import Footer from './Components/Home/Footer';
+import Login from './Pages/Login';
+import SignUp from './Pages/SignUp';
 
 function App() {
   return (
@@ -13,7 +16,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tools/:id" element={<PurchasePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signUp" element={<SignUp />} />
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );

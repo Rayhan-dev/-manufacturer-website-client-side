@@ -19,8 +19,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li className='hover:text-primary'><a>Item 1</a></li>
-                        <li className='hover:text-primary'><a>Item 3</a></li>
+                        <li className='hover:text-primary'><Link to={'/login'}>Login</Link></li>
                     </ul>
                 </div>
             </div>

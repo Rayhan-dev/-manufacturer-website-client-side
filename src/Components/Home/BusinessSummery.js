@@ -2,8 +2,8 @@ import React from 'react';
 
 const BusinessSummery = () => {
     return (
-        <div>
-            <h1 className=' font-bold text-5xl pt-10'>Our Happy Community</h1>
+        <div className='py-24'>
+            <h1 className=' font-bold text-5xl pb-12'>Our Happy Community</h1>
             <div className='grid grid-cols-4 gap-4 py-10'>
                 <div className="">
                     <div>
