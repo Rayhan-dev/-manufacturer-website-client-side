@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ToolCard = ({ index, data }) => {
     // const [name,price,minOrder,available,description, img] = data;
@@ -12,7 +13,7 @@ const ToolCard = ({ index, data }) => {
                 <p>minimum order:{data.minOrder}</p>
                 <p>Available: {data.available}</p>
                 <div class="card-actions justify-start">
-                    <button class="btn btn-primary">Buy Now</button>
+                    <Link to={`/tools/${data._id}`} class="btn btn-primary">Buy Now</Link>
                 </div>
             </div>
         </div>
