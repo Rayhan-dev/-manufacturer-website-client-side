@@ -8,14 +8,19 @@ import PurchasePage from './Pages/PurchasePage';
 import Footer from './Components/Home/Footer';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
+import Requireauth from './Hooks/Requireauth';
 
 function App() {
   return (
-    <div className="App bg-neutral text-white">
+    <div className="App bg-neutral  text-white">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tools/:id" element={<PurchasePage />} />
+        <Route path="/tools/:id" element={
+          <Requireauth>
+            <PurchasePage />
+          </Requireauth>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -12,11 +13,16 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password)
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    const onSubmit =async data => {
+        await signInWithEmailAndPassword(data.email, data.password);
+        await navigate(from, { replace: true });
     };
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     let errorMsg;
+   
     if (error || gerror) {
         errorMsg = (
             <div>
@@ -25,7 +31,7 @@ const Login = () => {
         );
     }
     if (loading || gloading) {
-        return <p>Loading...</p>;
+        return <Loading></Loading>;
     }
     return (
         <div className='h-screen'>

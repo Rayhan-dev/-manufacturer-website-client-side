@@ -2,8 +2,8 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div className="py-48 text-center h-screen">
-            <button className="btn loading mx-auto">loading....</button>
+        <div className="h-screen text-center flex justify-center items-center">
+            <button class="btn btn-square loading"></button>
         </div>
     );
 };
