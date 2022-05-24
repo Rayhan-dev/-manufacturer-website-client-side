@@ -68,7 +68,10 @@ const SignUp = () => {
                     </div>
                 </form>
                 <div class="divider text-primary">OR</div>
-                <button class="btn btn-primary w-full bg-accent border border-primary text-white" onClick={() => signInWithGoogle()}>Continue With Google</button>
+                <button class="btn btn-primary w-full bg-accent border border-primary text-white" onClick={() => {
+                    signInWithGoogle();
+                    
+                }}>Continue With Google</button>
             </div>
         </div>
     );
