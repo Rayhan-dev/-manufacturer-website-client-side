@@ -18,7 +18,7 @@ const ToolsSection = () => {
         <div className='mx-24'>
             <h1 className='text-5xl font-bold pb-10'>Products that we manufacture</h1>
             {
-                datas.slice(0,6).map((data,index)=><ToolCard key={data._id} index={index} data={data} ></ToolCard>)
+                datas.slice(datas.length-6,datas.length).reverse().map((data,index)=><ToolCard key={data._id} index={index} data={data} ></ToolCard>)
             }
         </div>
     );

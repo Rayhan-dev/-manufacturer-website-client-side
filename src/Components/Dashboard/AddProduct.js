@@ -5,14 +5,13 @@ const AddProduct = () => {
     const axios = require('axios').default;
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/addProduct', {
-            method:'POST'
-        })
-            .then(res => console.log(res))
-        // axios.post('http://localhost:5000/addProduct', data)
-        //     .then(response => {
-        //         console.log(response)
-        //     })
+
+        axios.post('http://localhost:5000/addProduct', data)
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                toast.success('successfully addede tool')
+            })
     };
 
     return (
@@ -33,7 +32,7 @@ const AddProduct = () => {
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-6">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-city">
                             Min Order
                         </label>
@@ -48,11 +47,17 @@ const AddProduct = () => {
                             />
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 px-3">
+                    <div class="w-full md:w-1/3 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                             Price
                         </label>
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="number" name="product"   {...register("price")} />
+                    </div>
+                    <div class="w-full md:w-1/3 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
+                            Available
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="number" name="product"   {...register("available")} />
                     </div>
                 </div>
                 <div class="flex flex-wrap -mx-3 mb-2">
