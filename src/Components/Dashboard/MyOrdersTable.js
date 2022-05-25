@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 
-const MyOrdersTable = ({ order, handleOrderCancel,setDeletingOrder }) => {
+const MyOrdersTable = ({ order,  setDeletingOrder }) => {
     const axios = require('axios');
     return (
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">

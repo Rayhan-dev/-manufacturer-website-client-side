@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import axiosPrivate from '../../api/axiosPrivate';
+import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
+import Loading from '../../Shared/Loading';
+import MakeAdminRow from './MakeAdminRow';
 
 const MakeAdmin = () => {
     const axios = require('axios');
-    const [users, setUsers] = useState([]);
-    // Make a request for a user with a given ID
-    useEffect(() => {
-        axios.get('http://localhost:5000/users')
-        .then(function (response) {
-            // handle success
-            setUsers(response.data);
-        })
-    }, [])
-    const handleMakeAdmin = (email) => {
-        axios.put(`http://localhost:5000/admin/${email}`)
-    }
+    const { isLoading,refetch, error, data:users } = useQuery('user', () =>
+    fetch('http://localhost:5000/users').then(res =>
+      res.json()
+    )
+    )
+    if (isLoading) return <Loading></Loading>
+    
     return (
         <div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg ">
@@ -31,16 +29,7 @@ const MakeAdmin = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map(user => (
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                        {user.email}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        <div className="btn btn-primary"  onClick={()=>handleMakeAdmin(user.email)}   disabled={user.role === 'admin'}>Make Admin</div>
-                                    </td>
-                                </tr>
-                            ))
+                            users.map(user => <MakeAdminRow key={user._id} refetch={refetch} user={user} ></MakeAdminRow>)
                         }
 
 
