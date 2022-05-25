@@ -1,17 +1,22 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../Hooks/useToken';
 
 
 const SignUp = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name })
+
     };
     const [
         createUserWithEmailAndPassword,
@@ -21,17 +26,21 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [token] = useToken(user || guser);
     let errorMsg;
 
     if (error || updateError || gerror) {
         errorMsg = (
             <div>
-                <p className='text-red-600 font-bold' >Error: {error.message}</p>
+                <p className='text-red-600 font-bold' >Error: {error?.message}</p>
             </div>
         );
     }
-    if (loading || updating ||gloading) {
+    if (loading || updating || gloading) {
         return <Loading></Loading>
+    }
+    if (token) {
+        navigate(from, { replace: true });
     }
     return (
         <div className='grid ms:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 flex items-center h-screen'>
@@ -70,7 +79,7 @@ const SignUp = () => {
                 <div class="divider text-primary">OR</div>
                 <button class="btn btn-primary w-full bg-accent border border-primary text-white" onClick={() => {
                     signInWithGoogle();
-                    
+
                 }}>Continue With Google</button>
             </div>
         </div>

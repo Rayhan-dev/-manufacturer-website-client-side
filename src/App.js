@@ -13,6 +13,11 @@ import Dashboard from './Pages/Dashboard';
 import Profile from './Pages/Profile';
 import Addreview from './Pages/Addreview';
 import MyOrder from './Pages/MyOrder';
+import NotFoundPage from './Pages/NotFoundPage';
+import ManageOrders from './Components/Dashboard/ManageOrders';
+import AddProduct from './Components/Dashboard/AddProduct';
+import MakeAdmin from './Components/Dashboard/MakeAdmin';
+import ManageProducts from './Components/Dashboard/ManageProducts';
 
 function App() {
   return (
@@ -35,7 +40,12 @@ function App() {
           <Route path='myProfile' element={<Profile></Profile>}></Route>
           <Route path='addReview' element={<Addreview></Addreview>}></Route>
           <Route path='myOrders' element={<MyOrder></MyOrder>}></Route>
+          <Route path='manageOrders' element={<ManageOrders></ManageOrders>}></Route>
+          <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
+          <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path='manageProduct' element={<ManageProducts></ManageProducts>}></Route>
         </Route>
+      <Route path="*" element={<NotFoundPage/>} />
       </Routes>
       <Footer></Footer>
       <ToastContainer />

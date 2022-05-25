@@ -10,7 +10,11 @@ const MyOrder = () => {
     const [userOrders, setUserOrders] = useState([]);
     const [deletingOrder, setDeletingOrder] = useState(null);
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders/${user.email}`)
+        axios.get(`http://localhost:5000/orders/${user.email}`, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(function (response) {
                 setUserOrders(response.data);
             })

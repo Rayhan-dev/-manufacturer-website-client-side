@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../Hooks/useToken';
 
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -18,9 +19,10 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
     const onSubmit =async data => {
         await signInWithEmailAndPassword(data.email, data.password);
-        await navigate(from, { replace: true });
+ 
     };
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [token] = useToken(user || guser);
     let errorMsg;
    
     if (error || gerror) {
@@ -32,6 +34,9 @@ const Login = () => {
     }
     if (loading || gloading) {
         return <Loading></Loading>;
+    }
+    if (token) {
+        navigate(from, { replace: true });
     }
     return (
         <div className='h-screen'>

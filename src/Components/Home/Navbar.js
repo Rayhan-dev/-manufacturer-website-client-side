@@ -36,7 +36,10 @@ const Navbar = () => {
                             user && <li className='hover:text-primary'><Link to={'/dashboard'}>Dashboard</Link></li>
                         }
                         {
-                            user ? <li className='hover:text-primary'><button onClick={() => signOut(auth)}>Sign out</button></li> : <li className='hover:text-primary'><Link to={'/login'}>Login</Link></li>
+                            user ? <li className='hover:text-primary'><button onClick={() => {
+                                signOut(auth);
+                                localStorage.removeItem('accessToken')
+                            }}>Sign out</button></li> : <li className='hover:text-primary'><Link to={'/login'}>Login</Link></li>
                         }
                         {
                             user && <li><small className='text-primary'>{user.displayName}</small></li>
