@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = ({ review }) => {    
     return (
         <div className="card w-96 shadow-secondary  shadow-xl border border-primary mx-auto mt-5 flex flex-row items-center p-5">
             <div>
@@ -10,14 +10,8 @@ const ReviewCard = ({ review }) => {
             </div>
             <div className="card-body">
                 <h2 className="card-title"> {review.name}</h2>
-                <p> -{review.review}</p>
-                <div class="rating">
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked={review.rating>=1} />
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked={review.rating>=2}/>
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked={review.rating>=3}/>
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked={review.rating>=4}/>
-                    <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked={review.rating>=5}/>
-                </div>
+                <p className='text-left'> -- {review.review}</p>
+                <p className='text-left'>Rating: {review.rating}/5</p>
             </div>
         </div>
     );
