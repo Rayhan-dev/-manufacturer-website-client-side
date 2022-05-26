@@ -18,6 +18,7 @@ import ManageOrders from './Components/Dashboard/ManageOrders';
 import AddProduct from './Components/Dashboard/AddProduct';
 import MakeAdmin from './Components/Dashboard/MakeAdmin';
 import ManageProducts from './Components/Dashboard/ManageProducts';
+import Payment from './Pages/Payment';
 
 function App() {
   return (
@@ -44,7 +45,9 @@ function App() {
           <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
           <Route path='manageProduct' element={<ManageProducts></ManageProducts>}></Route>
+          <Route path="payment/:id" element={<Payment/>} />
         </Route>
+      
       <Route path="*" element={<NotFoundPage/>} />
       </Routes>
       <Footer></Footer>

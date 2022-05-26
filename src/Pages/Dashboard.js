@@ -15,12 +15,6 @@ const Dashboard = () => {
                 }
             })
     }
-    // useEffect(() => {
-    //     axios.get(`http://localhost:5000/admin/${user.email}`)
-    //         .then(function (response) {
-    //             console.log(response.data);
-    //       })
-    // },[user])
 
     return (
         <div className='min-h-full'>

@@ -15,7 +15,8 @@ const AddProduct = () => {
     };
 
     return (
-        <div className='flex justify-center'>
+        <div className='mx-auto'>
+            <h1 className='text-primary font-bold text-4xl py-10'>Add a New Product</h1>
             <form onSubmit={handleSubmit(onSubmit)} class="w-full max-w-lg bg-white p-12 border rounded-lg mx-auto">
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

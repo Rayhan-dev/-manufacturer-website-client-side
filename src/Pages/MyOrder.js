@@ -10,15 +10,11 @@ const MyOrder = () => {
     const [userOrders, setUserOrders] = useState([]);
     const [deletingOrder, setDeletingOrder] = useState(null);
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders/${user.email}`, {
-            headers: {
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
+        axios.get(`http://localhost:5000/orders/${user.email}`,)
             .then(function (response) {
                 setUserOrders(response.data);
             })
-    }, [axios.delete])
+    }, [])
     const handleOrderCancel = (id) => {
         const url = `http://localhost:5000/orders/${id}`
         axios.delete(url);
@@ -47,6 +43,9 @@ const MyOrder = () => {
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only">Edit</span>
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                <span class="sr-only"></span>
                             </th>
                         </tr>
                     </thead>

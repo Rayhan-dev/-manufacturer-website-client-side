@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyOrdersTable = ({ order,  setDeletingOrder }) => {
     const axios = require('axios');
@@ -19,7 +20,9 @@ const MyOrdersTable = ({ order,  setDeletingOrder }) => {
             </td>
             <td class="px-6 py-4 text-right">
                 <label onClick={()=>setDeletingOrder(order)} for="deleteModal" class="btn modal-button btn-primary">Cancel</label>
-               
+            </td>
+            <td>
+                <Link className='btn btn-secondary' to={`/dashboard/payment/${order._id}`}>Pay</Link>
             </td>
         </tr>
     );
