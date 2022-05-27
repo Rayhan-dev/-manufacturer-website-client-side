@@ -22,7 +22,12 @@ const MyOrdersTable = ({ order,  setDeletingOrder }) => {
                 <label onClick={()=>setDeletingOrder(order)} for="deleteModal" class="btn modal-button btn-primary">Cancel</label>
             </td>
             <td>
-                <Link className='btn btn-secondary' to={`/dashboard/payment/${order._id}`}>Pay</Link>
+                {
+                    order.paid ||<Link className='btn btn-secondary' to={`/dashboard/payment/${order._id}`}>Pay</Link>
+                }
+                {
+                    order.paid &&   <span className='text-white px-4 py-3 border border-transparent rounded-lg bg-green-600'>Paid</span>
+                }
             </td>
         </tr>
     );
