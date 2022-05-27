@@ -7,7 +7,7 @@ const CheckOutForm = ({ data }) => {
     const price = parseInt(data.price) * parseInt(data.quantity);
     const [cardError, setCardError] = useState('');
     const [success, setSuccess] = useState('');
-    const [paying, setPaying] = useState(null);
+    const [paying, setPaying] = useState(false);
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState("");
     const stripe = useStripe();
@@ -47,6 +47,7 @@ const CheckOutForm = ({ data }) => {
         });
         if (error) {
             setCardError(error.message);
+            setPaying(false)
         } else {
             setPaying(true);
             setCardError('');
@@ -64,7 +65,6 @@ const CheckOutForm = ({ data }) => {
             );
             if (intentError) {
                 setCardError(intentError.message);
-                setPaying(false)
             } else {
                 setCardError('')
                 setTransactionId(paymentIntent.id)
@@ -79,14 +79,12 @@ const CheckOutForm = ({ data }) => {
                         "content-type": "application/json",
                     },
                     body: JSON.stringify(payment)
-                }).then(res => res.json()).then(data => {
-                        console.log(data)
-                        setPaying(false)
+                }).then(res => res.json())
+                    .then(data => {
                     })
             }
         }
     }
-
     return (
         <div>
             <form onSubmit={handleSubmit}>

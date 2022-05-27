@@ -29,6 +29,9 @@ const MyOrdersTable = ({ order,  setDeletingOrder }) => {
                     order.paid &&   <span className='text-white px-4 py-3 border border-transparent rounded-lg bg-green-600'>Paid</span>
                 }
             </td>
+            <td>
+               {order.transactionID}
+            </td>
         </tr>
     );
 };

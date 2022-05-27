@@ -47,6 +47,9 @@ const MyOrder = () => {
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only"></span>
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                <span >Transaction Id</span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
