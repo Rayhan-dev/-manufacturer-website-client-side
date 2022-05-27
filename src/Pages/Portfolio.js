@@ -34,6 +34,15 @@ const Portfolio = () => {
                     </div>
                 </div>
             </div>
+            <div class="card w-1/2 bg-base-100 shadow-xl text-black mx-auto mt-12">
+                <div class="card-body">
+                    <h2 class="card-title">3 Live links of my project</h2>
+                    <p><a href="https://warehouse-management-31966.web.app/">Bookipedia (Warehouse managemnet)</a></p>
+                    <p><a href="https://study-buddy-d565c.web.app/">Study Buddy (Indevidual service provider)</a></p>
+                    <p><a href="https://react-product-page-gpu-park.netlify.app/">GPU park (Product page)</a></p>
+                    
+                </div>
+            </div>
         </div>
     );
 };

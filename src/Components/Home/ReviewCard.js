@@ -10,8 +10,8 @@ const ReviewCard = ({ review }) => {
             </div>
             <div className="card-body">
                 <h2 className="card-title"> {review.name}</h2>
-                <p className='text-left'> -- {review.review}</p>
-                <p className='text-left'>Rating: {review.rating}/5</p>
+                <p className='text-left text-primary'>{review.review}</p>
+                <p className='text-left '>Rating: {review.rating}/5</p>
             </div>
         </div>
     );
