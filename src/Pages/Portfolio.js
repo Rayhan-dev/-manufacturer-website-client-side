@@ -23,13 +23,15 @@ const Portfolio = () => {
                         <h1 className='font-bold text-2xl'>Frameworks/Libraries</h1>
                         <p className='mr-auto'>Bootstrap</p>
                         <p className='mr-auto'>Tailwind Css</p>
+                        <p className='mr-auto'>daisy Ui</p>
                         <p className='mr-auto'>React</p>
                         <p className='mr-auto'>React router</p>
                         <p className='mr-auto'>ExpressJS</p>
                         <p className='mr-auto'>Node</p>
+                        <p className='mr-auto'>Axios</p>
+                        <p className='mr-auto'>React query</p>
+                        <p className='mr-auto'>React Form Hooks</p>
                     </div>
-
-
                 </div>
             </div>
         </div>
