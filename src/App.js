@@ -19,6 +19,8 @@ import AddProduct from './Components/Dashboard/AddProduct';
 import MakeAdmin from './Components/Dashboard/MakeAdmin';
 import ManageProducts from './Components/Dashboard/ManageProducts';
 import Payment from './Pages/Payment';
+import Blog from './Pages/Blog';
+import Portfolio from './Pages/Portfolio';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
         } />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route path='/dashboard' element={
           <Requireauth>
             <Dashboard></Dashboard>
