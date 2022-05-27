@@ -8,7 +8,7 @@ const PurchasePage = () => {
 
     const { id } = useParams();
     const [purchaseItem, setPurchaseItem] = useState([])
-
+    const [OrderQuantity, setOrderQuantity] = useState(0);
     useEffect(() => {
         fetch(`http://localhost:5000/tools/${id}`)
             .then(res => res.json())
@@ -17,7 +17,6 @@ const PurchasePage = () => {
                 setOrderQuantity(data.minOrder)
             })
     }, [])
-    const [OrderQuantity, setOrderQuantity] = useState();
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = {
@@ -27,38 +26,25 @@ const PurchasePage = () => {
             quantity: event.target.quantityField.value,
             phone: event.target.phone.value,
             address: event.target.address.value,
-            price:purchaseItem.price
+            price: purchaseItem.price
         }
-        
-            axios.post('http://localhost:5000/orders', {
-                data
-              })
-              .then(function (response) {
+
+        axios.post('http://localhost:5000/orders', {
+            data
+        })
+            .then(function (response) {
                 console.log(response);
-              })
-              .catch(function (error) {
+            })
+            .catch(function (error) {
                 console.log(error);
-              });
+            });
 
     }
     const [user] = useAuthState(auth);
-    let quantityError;
-    if (purchaseItem.quantity > purchaseItem.available) {
-        quantityError = (
-            <div>
-                <p>  {`You cant order more than ${purchaseItem.available}`}</p>
-            </div>
-    )
-    } else if (purchaseItem.quantity < purchaseItem.minOrder) {
-        quantityError = (
-            <div>
-                <p> `{`You have to order more than ${purchaseItem.minOrder}`}`</p>
-           </div>
-       )
-    }
-        
+   
+
     return (
-        <div className='min-h-full'>
+        <div className=' h-screen mt-24'>
             <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1">
                 <div>
                     <div className={`card card-side border border-primary rounded-lg mt-5 mx-12 my-5 grid md:grid-cols-2 sm:grid-cols-1 lg:grid-cols-2`} >
@@ -114,11 +100,11 @@ const PurchasePage = () => {
                                     <input
                                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         name='quantityField'
-                                        type="text"
+                                        type="number"
                                         id="quantity"
                                         value={OrderQuantity}
                                         onChange={async (event) => {
-                                            await setOrderQuantity(parseInt(event.target.value))
+                                            setOrderQuantity(parseInt((event.target.value)))
                                         }} />
                                     <button disabled={purchaseItem.minOrder >= OrderQuantity} onClick={(event) => {
                                         event.preventDefault();
@@ -141,7 +127,14 @@ const PurchasePage = () => {
                             </label>
                             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="Road no , house no ...." name='address' />
                         </div>
-                        <button class="btn bg-accent text-white border border-primary mt-5" type='submit' >Place Order</button>
+                        <div>
+                        <p className={purchaseItem.minOrder>OrderQuantity?`text-red-600 font-bold`: `hidden`}>You have to order more than {purchaseItem.minOrder} pieces</p>
+                        <p className={purchaseItem.available<OrderQuantity?`text-red-600 font-bold`:`hidden`}>You can't order more than {purchaseItem.available} pieces right now</p>
+                        </div>
+                        
+                        <button class="btn btn-primary mt-3" type='submit' disabled={OrderQuantity < purchaseItem.minOrder || OrderQuantity > purchaseItem.available} >Place Order</button>
+
+                       
                     </form >
                 </div>
             </div>

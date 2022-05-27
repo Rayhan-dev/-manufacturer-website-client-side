@@ -16,13 +16,7 @@ const MyOrdersTable = ({ order, setDeletingOrder }) => {
                 {order.price * order.quantity}
             </td>
             <td class="px-6 py-4">
-                status
-            </td>
-            <td class="px-6 py-4 text-right">
-
-            </td>
-            <td>
-                {
+            {
                     order.paid ||
                     <>
                         <label onClick={() => setDeletingOrder(order)} for="deleteModal" class="btn modal-button btn-primary">Cancel</label>

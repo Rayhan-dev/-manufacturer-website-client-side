@@ -39,10 +39,7 @@ const MyOrder = () => {
                                 Total Price
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Staus
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                <span class="sr-only"></span>
+                                <span >Action</span>
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <span >Transaction Id</span>
