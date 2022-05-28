@@ -10,7 +10,11 @@ const MyOrder = () => {
     const [userOrders, setUserOrders] = useState([]);
     const [deletingOrder, setDeletingOrder] = useState(null);
     useEffect(() => {
-        axios.get(`https://blooming-shelf-97810.herokuapp.com/orders/${user.email}`,)
+        axios.get(`https://blooming-shelf-97810.herokuapp.com/orders/${user.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(function (response) {
                 setUserOrders(response.data);
             })
@@ -48,14 +52,14 @@ const MyOrder = () => {
                     </thead>
                     <tbody>
                         {
-                            userOrders.map(order=><MyOrdersTable key={order._id} setDeletingOrder={setDeletingOrder} handleOrderCancel={handleOrderCancel} order={order}></MyOrdersTable>)
+                            userOrders.map(order => <MyOrdersTable key={order._id} setDeletingOrder={setDeletingOrder} handleOrderCancel={handleOrderCancel} order={order}></MyOrdersTable>)
                         }
-                        
+
 
                     </tbody>
                 </table>
             </div>
-                        {deletingOrder && <DeleteModal setDeletingOrder={setDeletingOrder} handleOrderCancel={handleOrderCancel} deletingOrder={deletingOrder} ></DeleteModal>}
+            {deletingOrder && <DeleteModal setDeletingOrder={setDeletingOrder} handleOrderCancel={handleOrderCancel} deletingOrder={deletingOrder} ></DeleteModal>}
         </div>
     );
 };

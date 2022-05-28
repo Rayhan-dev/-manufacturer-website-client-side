@@ -30,7 +30,11 @@ const PurchasePage = () => {
         }
 
         axios.post('https://blooming-shelf-97810.herokuapp.com/orders', {
-            data
+            data,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+
         })
             .then(function (response) {
                 console.log(response);
@@ -41,7 +45,7 @@ const PurchasePage = () => {
 
     }
     const [user] = useAuthState(auth);
-   
+
 
     return (
         <div className=' h-screen mt-24'>
@@ -128,13 +132,13 @@ const PurchasePage = () => {
                             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="Road no , house no ...." name='address' />
                         </div>
                         <div>
-                        <p className={purchaseItem.minOrder>OrderQuantity?`text-red-600 font-bold`: `hidden`}>You have to order more than {purchaseItem.minOrder} pieces</p>
-                        <p className={purchaseItem.available<OrderQuantity?`text-red-600 font-bold`:`hidden`}>You can't order more than {purchaseItem.available} pieces right now</p>
+                            <p className={purchaseItem.minOrder > OrderQuantity ? `text-red-600 font-bold` : `hidden`}>You have to order more than {purchaseItem.minOrder} pieces</p>
+                            <p className={purchaseItem.available < OrderQuantity ? `text-red-600 font-bold` : `hidden`}>You can't order more than {purchaseItem.available} pieces right now</p>
                         </div>
-                        
+
                         <button class="btn btn-primary mt-3" type='submit' disabled={OrderQuantity < purchaseItem.minOrder || OrderQuantity > purchaseItem.available} >Place Order</button>
 
-                       
+
                     </form >
                 </div>
             </div>
