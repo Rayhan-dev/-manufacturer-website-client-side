@@ -10,7 +10,11 @@ const PurchasePage = () => {
     const [purchaseItem, setPurchaseItem] = useState([])
     const [OrderQuantity, setOrderQuantity] = useState(0);
     useEffect(() => {
-        fetch(`https://blooming-shelf-97810.herokuapp.com/tools/${id}`)
+        fetch(`https://blooming-shelf-97810.herokuapp.com/tools/${id}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setPurchaseItem(data);
@@ -33,7 +37,7 @@ const PurchasePage = () => {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
-            body: data;
+            body: data
 
         })
             .then(function (response) {
