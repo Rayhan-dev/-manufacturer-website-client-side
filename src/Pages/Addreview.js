@@ -6,7 +6,6 @@ const Addreview = () => {
     const axios = require('axios').default;
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         axios.post('http://localhost:5000/addReview', data)
             .then(function (response) {
                 // handle success

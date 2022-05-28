@@ -6,13 +6,18 @@ import MakeAdminRow from './MakeAdminRow';
 
 const MakeAdmin = () => {
     const axios = require('axios');
-    const { isLoading,refetch, error, data:users } = useQuery('user', () =>
-    fetch('http://localhost:5000/users').then(res =>
-      res.json()
-    )
+    const { isLoading, refetch, error, data: users } = useQuery('user', () =>
+        fetch('http://localhost:5000/users',
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+            .then(res => res.json()
+            )
     )
     if (isLoading) return <Loading></Loading>
-    
+
     return (
         <div>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg ">
@@ -30,9 +35,7 @@ const MakeAdmin = () => {
                     <tbody>
                         {
                             users.map(user => <MakeAdminRow key={user._id} refetch={refetch} user={user} ></MakeAdminRow>)
-                        }
-
-
+                        }   
                     </tbody>
                 </table>
             </div>

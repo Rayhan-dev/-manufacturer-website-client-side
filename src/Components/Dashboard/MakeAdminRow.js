@@ -4,12 +4,12 @@ import { toast } from 'react-toastify';
 
 const MakeAdminRow = ({ user, refetch }) => {
     const handleMakeAdmin = (email) => {
-        // axios.put(`http://localhost:5000/admin/${email}`)
-        // .then(function (response) {
-        //     console.log(response);  
-        //     toast.success("Successfully Made an admin");
-        //     refetch()
-        // })
+        axios.put(`http://localhost:5000/admin/${email}`)
+        .then(function (response) {
+            console.log(response);  
+            toast.success("Successfully Made an admin");
+            refetch()
+        })
         fetch(`http://localhost:5000/admin/${email}`, {
             method: "PUT",
         })
