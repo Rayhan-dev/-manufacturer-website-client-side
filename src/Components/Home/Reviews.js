@@ -4,11 +4,7 @@ import ReviewCard from './ReviewCard';
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch('https://blooming-shelf-97810.herokuapp.com/reviews', {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
+        fetch('https://blooming-shelf-97810.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

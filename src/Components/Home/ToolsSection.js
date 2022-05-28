@@ -6,11 +6,7 @@ const ToolsSection = () => {
     const [loading, setLoading] = useState(true);
     const [datas, setDatas] = useState([]);
     useEffect(() => {
-        fetch("https://blooming-shelf-97810.herokuapp.com/tools", {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
+        fetch("https://blooming-shelf-97810.herokuapp.com/tools")
             .then(res => res.json())
             .then(datas => {
                 setDatas(datas);
