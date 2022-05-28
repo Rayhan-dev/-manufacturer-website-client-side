@@ -10,11 +10,7 @@ const PurchasePage = () => {
     const [purchaseItem, setPurchaseItem] = useState([])
     const [OrderQuantity, setOrderQuantity] = useState(0);
     useEffect(() => {
-        fetch(`https://blooming-shelf-97810.herokuapp.com/tools/${id}`, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
+        fetch(`https://blooming-shelf-97810.herokuapp.com/tools/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPurchaseItem(data);
@@ -34,14 +30,12 @@ const PurchasePage = () => {
         }
 
         axios.post('https://blooming-shelf-97810.herokuapp.com/orders', {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            },
-            body: data
+            data
 
         })
             .then(function (response) {
                 console.log(response);
+                toast.success("Order placed!!")
             })
             .catch(function (error) {
                 console.log(error);
