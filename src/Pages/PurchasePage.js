@@ -30,10 +30,10 @@ const PurchasePage = () => {
         }
 
         axios.post('https://blooming-shelf-97810.herokuapp.com/orders', {
-            data,
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
+            },
+            body: data;
 
         })
             .then(function (response) {
