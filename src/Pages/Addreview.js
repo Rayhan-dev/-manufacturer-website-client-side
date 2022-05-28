@@ -55,7 +55,7 @@ const Addreview = () => {
                             <p className='text-red-600'>{errors.rating && "Rating should be between 1 to 5"}</p>
                         </div>
                     </div>
-                    <button class="btn bg-accent text-white border border-primary mt-5" type='submit' >Add Tool</button>
+                    <button class="btn bg-accent text-white border border-primary mt-5" type='submit' >Add Review</button>
                 </form >
             </div>
         </div>
