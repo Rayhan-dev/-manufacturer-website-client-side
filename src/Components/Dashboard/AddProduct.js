@@ -6,7 +6,7 @@ const AddProduct = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/addProduct', data)
+        axios.post('https://blooming-shelf-97810.herokuapp.com/addProduct', data)
             .then(function (response) {
                 // handle success
                 console.log(response);

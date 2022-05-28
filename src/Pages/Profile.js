@@ -9,14 +9,14 @@ const Profile = () => {
     const [user, loading, error] = useAuthState(auth);
     const [userInfo, setUserInfo] = useState([]);
     if (user) {
-        axios.get(`http://localhost:5000/admin/${user.email}`)
+        axios.get(`https://blooming-shelf-97810.herokuapp.com/admin/${user.email}`)
             .then(function (response) {
                 setUserInfo(response.data[0])
             })
     }
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        axios.put(`http://localhost:5000/user/${user.email}`, data)
+        axios.put(`https://blooming-shelf-97810.herokuapp.com/user/${user.email}`, data)
         .then(function (response) {
             // handle success
             console.log(response);

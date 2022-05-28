@@ -10,13 +10,13 @@ const MyOrder = () => {
     const [userOrders, setUserOrders] = useState([]);
     const [deletingOrder, setDeletingOrder] = useState(null);
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders/${user.email}`,)
+        axios.get(`https://blooming-shelf-97810.herokuapp.com/orders/${user.email}`,)
             .then(function (response) {
                 setUserOrders(response.data);
             })
     }, [])
     const handleOrderCancel = (id) => {
-        const url = `http://localhost:5000/orders/${id}`
+        const url = `https://blooming-shelf-97810.herokuapp.com/orders/${id}`
         axios.delete(url);
         const remaining = userOrders.filter(o => o._id !== id);
         setUserOrders(remaining);

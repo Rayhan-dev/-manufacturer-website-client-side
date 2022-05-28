@@ -8,7 +8,7 @@ const useToken = user => {
         const email = user?.user?.email;
         const userData = { email: email };
         if (email) {
-            axios.put(`http://localhost:5000/user/${email}`, userData)
+            axios.put(`https://blooming-shelf-97810.herokuapp.com/user/${email}`, userData)
                 .then(function (response) {
                     // handle success
                     const secretToken = response.data.token;

@@ -7,7 +7,7 @@ import MakeAdminRow from './MakeAdminRow';
 const MakeAdmin = () => {
     const axios = require('axios');
     const { isLoading, refetch, error, data: users } = useQuery('user', () =>
-        fetch('http://localhost:5000/users',
+        fetch('https://blooming-shelf-97810.herokuapp.com/users',
             {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`

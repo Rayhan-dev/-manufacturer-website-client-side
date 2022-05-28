@@ -4,13 +4,13 @@ import { toast } from 'react-toastify';
 
 const MakeAdminRow = ({ user, refetch }) => {
     const handleMakeAdmin = (email) => {
-        axios.put(`http://localhost:5000/admin/${email}`)
+        axios.put(`https://blooming-shelf-97810.herokuapp.com/admin/${email}`)
         .then(function (response) {
             console.log(response);  
             toast.success("Successfully Made an admin");
             refetch()
         })
-        fetch(`http://localhost:5000/admin/${email}`, {
+        fetch(`https://blooming-shelf-97810.herokuapp.com/admin/${email}`, {
             method: "PUT",
         })
             .then(res => res.json())
