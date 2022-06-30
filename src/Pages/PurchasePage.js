@@ -10,7 +10,7 @@ const PurchasePage = () => {
     const [purchaseItem, setPurchaseItem] = useState([])
     const [OrderQuantity, setOrderQuantity] = useState(0);
     useEffect(() => {
-        fetch(`https://blooming-shelf-97810.herokuapp.com/tools/${id}`)
+        fetch(`http://localhost:5000/tools/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPurchaseItem(data);
@@ -26,10 +26,11 @@ const PurchasePage = () => {
             quantity: event.target.quantityField.value,
             phone: event.target.phone.value,
             address: event.target.address.value,
-            price: purchaseItem.price
+            price: purchaseItem.price,
+            status:"pending"
         }
 
-        axios.post('https://blooming-shelf-97810.herokuapp.com/orders', {
+        axios.post('http://localhost:5000/orders', {
             data
 
         })

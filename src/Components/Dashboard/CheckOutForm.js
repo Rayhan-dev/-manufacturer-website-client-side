@@ -14,7 +14,7 @@ const CheckOutForm = ({ data }) => {
     const elements = useElements();
     const { _id, product, email } = data;
     useEffect(() => {
-        fetch('https://blooming-shelf-97810.herokuapp.com/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const CheckOutForm = ({ data }) => {
                     transactionId: paymentIntent.id,
                     order: _id
                 };
-                fetch(`https://blooming-shelf-97810.herokuapp.com/orders/${_id}`, {
+                fetch(`http://localhost:5000/orders/${_id}`, {
                     method: "PATCH",
                     headers: {
                         "content-type": "application/json",

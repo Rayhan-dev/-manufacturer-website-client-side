@@ -8,7 +8,7 @@ const Dashboard = () => {
     const [user, loading, error] = useAuthState(auth);
     const [admin, setAdmin] = useState(null);
     if (user) {
-        axios.get(`https://blooming-shelf-97810.herokuapp.com/admin/${user.email}`)
+        axios.get(`http://localhost:5000/admin/${user.email}`)
             .then(function (response) {
                 if (response.data[0].role == 'admin') {
                     setAdmin(user);

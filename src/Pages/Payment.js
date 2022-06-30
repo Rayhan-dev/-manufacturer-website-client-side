@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L3Ts3JAWdakaiyOylFuje4MATxNADi3J9kiT
 const Payment = () => {
     const { id } = useParams();
     const { isLoading, error, data } = useQuery('repoData', () =>
-        axios.get(`https://blooming-shelf-97810.herokuapp.com/pay/${id}`)
+        axios.get(`http://localhost:5000/pay/${id}`)
     )
 
     if (isLoading) return <Loading></Loading>
