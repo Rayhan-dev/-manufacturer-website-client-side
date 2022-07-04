@@ -10,7 +10,7 @@ const Banner = () => {
                 <button id='product_section' className='bg-accent border border-primary text-white p-4 hover:bg-transparent '>View Products</button>
             </div>
             <div>
-                <img  className='w-2/3 mx-auto items-center mt-36 border border-primary rounded-lg ' src="https://augmentus.tech/wp-content/uploads/2021/02/Welding-2_2MP.jpg" alt="" />
+                <img  className='md:block sm:hidden w-2/3 mx-auto items-center mt-36 border border-primary rounded-lg ' src="https://augmentus.tech/wp-content/uploads/2021/02/Welding-2_2MP.jpg" alt="" />
             </div>
         </div>
     );
