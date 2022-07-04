@@ -7,7 +7,7 @@ const useOrders = () => {
     const [user, loading, error] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders/${user.email}`)
+        axios.get(`https://blooming-shelf-97810.herokuapp.com/orders/${user.email}`)
             .then(function (response) {
                 setOrders(response.data);
             })

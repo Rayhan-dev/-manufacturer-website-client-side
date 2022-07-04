@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const ManageOrders = () => {
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/orders`, {
+        axios.get(`https://blooming-shelf-97810.herokuapp.com/orders`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
@@ -22,7 +22,7 @@ const ManageOrders = () => {
 
     const updateStatus = (order) => {
         const transactionID = order.transactionID;
-        axios.put(`http://localhost:5000/orders/${transactionID}`)
+        axios.put(`https://blooming-shelf-97810.herokuapp.com/orders/${transactionID}`)
             .then(function (response) {
                 // handle success
                 console.log(response);

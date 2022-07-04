@@ -9,15 +9,16 @@ const ManageProducts = () => {
     const [deleteingTool, setDeletingTool] = useState(null);
     
     const handleToolDelete = (tool) => {
+        
         // console.log(tool._id)
-        const url = `http://localhost:5000/tools/${tool._id}`
+        const url = `https://blooming-shelf-97810.herokuapp.com/tools/${tool._id}`
         axios.delete(url);
         const remaining = datas.filter(o => o._id !== tool._id);
         setDatas(remaining);
         setDeletingTool(null)
     }
     useEffect(() => {
-        fetch("http://localhost:5000/tools")
+        fetch("https://blooming-shelf-97810.herokuapp.com/tools")
             .then(res => res.json())
             .then(datas => {
                 setDatas(datas);
